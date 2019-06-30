@@ -10,6 +10,7 @@ const {UserModel} = require('../models/users')
 router.get('/', function (req, res, next) {
     res.render('index', {title: 'Express'})
 })
+// 注册路由
 router.post('/register', (req, res) => {
     const {username, password} = req.body
     UserModel.findOne({username: username}, (err, user) => {
@@ -21,4 +22,15 @@ router.post('/register', (req, res) => {
         })
     })
 })
+// 登录路由
+router.post('/login', (req, res) => {
+    const {username, password} = req.body
+    UserModel.findOne({username, password}, filter, (err, user) => {
+        if (user) {
+            return res.send({code: 0, data: user})
+        }
+        res.send({code: 1, msg: '账号/密码错误！'})
+    })
+})
+
 module.exports = router
