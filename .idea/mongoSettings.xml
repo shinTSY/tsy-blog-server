@@ -16,5 +16,6 @@
         </ServerConfiguration>
       </list>
     </option>
+    <option name="shellPath" value="$USER_HOME$/Downloads/MongoDB/bin/mongod" />
   </component>
 </project>

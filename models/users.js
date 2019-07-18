@@ -9,4 +9,14 @@ const UserSchema = new Schema({
 
 const UserModel = mongoose.model('User', UserSchema)
 
+const ArticleSchema = new Schema({
+    title: String,
+    content: String,
+    time: Number,
+    tags: Array
+})
+
+const ArticleModel = mongoose.model('Article', ArticleSchema)
+
 exports.UserModel = UserModel
+exports.ArticleModel = ArticleModel
